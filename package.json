@@ -1,0 +1,55 @@
+{
+  "name": "homebridge-aiper-surfer2",
+  "displayName": "Aiper Surfer S2",
+  "type": "module",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Homebridge plugin to integrate and control the Aiper Surfer S2 solar pool skimmer in Apple HomeKit.",
+  "author": "NightPants",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/NightPants/Homebridge-Aiper-Surfer2#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NightPants/Homebridge-Aiper-Surfer2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NightPants/Homebridge-Aiper-Surfer2/issues"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "aiper",
+    "surfer",
+    "surfer-s2",
+    "pool",
+    "skimmer",
+    "solar",
+    "homekit"
+  ],
+  "main": "dist/index.js",
+  "engines": {
+    "node": "^20.18.0 || ^22.10.0 || ^24.0.0",
+    "homebridge": "^1.8.0 || ^2.0.0"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "prepare": "npm run build",
+    "lint": "eslint . --max-warnings=0",
+    "test": "tsx --test test/*.test.ts",
+    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "watch": "npm run build && npm link && nodemon"
+  },
+  "dependencies": {
+    "aws-iot-device-sdk-v2": "^1.27.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.0.0",
+    "homebridge": "^2.0.0",
+    "nodemon": "^3.1.14",
+    "rimraf": "^6.1.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  }
+}

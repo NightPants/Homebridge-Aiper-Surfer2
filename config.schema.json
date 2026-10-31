@@ -1,0 +1,191 @@
+{
+  "pluginAlias": "AiperSurfer2",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Integrate and control your **Aiper Surfer S2** solar pool skimmer in Apple HomeKit via the Aiper Cloud & AWS IoT MQTT API.",
+  "footerDisplay": "Note: Aiper's cloud permits one active account session at a time. Opening the official Aiper mobile app may briefly pause cloud polling for ~3 minutes so your phone session is not interrupted.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Platform Name",
+        "type": "string",
+        "default": "Aiper Surfer S2",
+        "required": true,
+        "description": "Display name used in Homebridge logs."
+      },
+      "email": {
+        "title": "Aiper Account Email",
+        "type": "string",
+        "required": true,
+        "placeholder": "you@example.com",
+        "description": "Email address used to sign in to the official Aiper mobile app."
+      },
+      "password": {
+        "title": "Aiper Account Password",
+        "type": "string",
+        "required": true,
+        "x-schema-form": {
+          "type": "password"
+        },
+        "description": "Password for your Aiper mobile app account."
+      },
+      "region": {
+        "title": "Aiper Cloud Region",
+        "type": "string",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Auto-Detect (Recommended)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "Americas (apiamerica.aiper.com)",
+            "enum": ["us"]
+          },
+          {
+            "title": "Europe / UK / MEA (apieurope.aiper.com)",
+            "enum": ["eu"]
+          },
+          {
+            "title": "Asia-Pacific / Australia (apiasia.aiper.com)",
+            "enum": ["asia"]
+          }
+        ],
+        "description": "Regional Aiper cloud server where your account is registered. Leave on Auto-Detect unless you want to pin a specific region."
+      },
+      "deviceId": {
+        "title": "Device Serial Number or Name (Optional)",
+        "type": "string",
+        "placeholder": "Leave blank to auto-discover all Surfer skimmers",
+        "description": "Optional serial number (SN) or friendly name from the Aiper app. Leave empty to automatically discover all Surfer S2 / Surfer skimmers on your account."
+      },
+      "accessoryType": {
+        "title": "Primary HomeKit Tile Type",
+        "type": "string",
+        "default": "switch",
+        "oneOf": [
+          {
+            "title": "Switch (Recommended for Siri — 'Turn on Pool Skimmer')",
+            "enum": ["switch"]
+          },
+          {
+            "title": "Fan / Impeller (Animated spinning propeller icon + built-in Auto/Manual Clean Path toggle)",
+            "enum": ["fan"]
+          }
+        ],
+        "description": "Choose how the main Surfer S2 skimmer tile appears in Apple Home."
+      },
+      "exposeCleanPathSwitch": {
+        "title": "Expose Adaptive Clean Path Switch",
+        "type": "boolean",
+        "default": true,
+        "description": "Exposes a separate HomeKit switch to toggle between S-Shaped (Off) and Adaptive (On) navigation paths. When Primary Tile Type is set to Fan, Clean Path is also mapped to the Fan's Manual/Auto mode selector."
+      },
+      "exposeWarningSensor": {
+        "title": "Expose Problem / Basket Alert Contact Sensor",
+        "type": "boolean",
+        "default": true,
+        "description": "Exposes a HomeKit Contact Sensor that opens when the Surfer S2 reports a warning (Stuck, Lifted, Debris Basket/Filter Full, Low Battery, or Out of Water), enabling native Apple Home push notifications."
+      },
+      "exposeSolarSensor": {
+        "title": "Expose Solar Charging Sensor",
+        "type": "boolean",
+        "default": false,
+        "description": "Exposes a HomeKit Occupancy Sensor that activates whenever the Surfer S2 is actively solar-charging on the water."
+      },
+      "exposeWaterTemperature": {
+        "title": "Expose Water Temperature Sensor",
+        "type": "string",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Auto (Expose when reported by device)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "Always Expose",
+            "enum": ["always"]
+          },
+          {
+            "title": "Disabled",
+            "enum": ["never"]
+          }
+        ],
+        "description": "Exposes a HomeKit Temperature Sensor if your firmware reports water temperature."
+      },
+      "enableDoorbellAlerts": {
+        "title": "Enable HomePod Doorbell Chime Alerts",
+        "type": "boolean",
+        "default": false,
+        "description": "Exposes optional HomeKit Doorbell accessories for Skimming Complete and Warning/Stuck events so HomePods can play whole-home chimes."
+      },
+      "lowBatteryThreshold": {
+        "title": "Low Battery Warning Threshold (%)",
+        "type": "integer",
+        "default": 20,
+        "minimum": 5,
+        "maximum": 50,
+        "description": "Battery percentage at or below which HomeKit marks StatusLowBattery."
+      },
+      "pollIntervalSeconds": {
+        "title": "Cloud Sync Poll Interval (Seconds)",
+        "type": "integer",
+        "default": 300,
+        "minimum": 60,
+        "maximum": 3600,
+        "description": "Interval in seconds between background Aiper REST sync polls. Live state updates arrive in real time via AWS IoT MQTT."
+      },
+      "debugMqtt": {
+        "title": "Verbose MQTT & API Debug Logging",
+        "type": "boolean",
+        "default": false,
+        "description": "Logs redacted MQTT shadow/upChan payloads and REST responses at info/debug level for troubleshooting."
+      }
+    },
+    "required": [
+      "name",
+      "email",
+      "password"
+    ]
+  },
+  "layout": [
+    {
+      "type": "fieldset",
+      "title": "Aiper Cloud Account",
+      "expandable": false,
+      "items": [
+        "name",
+        "email",
+        "password",
+        "region",
+        "deviceId"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "HomeKit Accessories & Features",
+      "expandable": true,
+      "expanded": true,
+      "items": [
+        "accessoryType",
+        "exposeCleanPathSwitch",
+        "exposeWarningSensor",
+        "exposeSolarSensor",
+        "exposeWaterTemperature",
+        "enableDoorbellAlerts",
+        "lowBatteryThreshold"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Advanced & Diagnostics",
+      "expandable": true,
+      "expanded": false,
+      "items": [
+        "pollIntervalSeconds",
+        "debugMqtt"
+      ]
+    }
+  ]
+}

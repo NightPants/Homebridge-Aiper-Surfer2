@@ -1,0 +1,16 @@
+src/
+test/
+.github/
+.vscode/
+.gitattributes
+eslint.config.js
+tsconfig.json
+tsconfig.test.json
+nodemon.json
+coverage/
+*.log
+*.tgz
+*.tsbuildinfo
+.env
+.env.*
+.DS_Store
