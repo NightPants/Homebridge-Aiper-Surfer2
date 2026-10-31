@@ -1,5 +1,5 @@
-# Compiled output
-dist/
+# Compiled output (committed to allow direct git install without devDependencies)
+# dist/
 
 # Dependencies
 node_modules/

@@ -32,7 +32,6 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "prepare": "npm run build",
     "lint": "eslint . --max-warnings=0",
     "test": "tsx --test test/*.test.ts",
     "prepublishOnly": "npm run lint && npm test && npm run build",
