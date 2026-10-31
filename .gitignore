@@ -27,3 +27,7 @@ Thumbs.db
 .idea/
 *.tgz
 
+# Salesforce CLI
+.sf/
+
+
