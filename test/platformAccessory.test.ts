@@ -379,3 +379,4 @@ describe('SurferPlatformAccessory HomeKit Mapping', () => {
     solarHandler.dispose();
   });
 });
+

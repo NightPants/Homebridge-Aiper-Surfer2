@@ -6,3 +6,4 @@
   "ignore": [],
   "exec": "npm run build && homebridge -I -D -P . -U ./test/hbConfig"
 }
+

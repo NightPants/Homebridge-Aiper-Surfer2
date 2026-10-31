@@ -107,3 +107,4 @@ export interface SurferAccessoryContext {
   model: string;
   firmwareVersion: string;
 }
+

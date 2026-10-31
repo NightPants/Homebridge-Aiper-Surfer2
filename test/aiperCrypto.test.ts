@@ -94,3 +94,4 @@ describe('AiperCrypto & Protocol Helpers', () => {
     assert.equal(redactSerial(undefined), 'unknown');
   });
 });
+

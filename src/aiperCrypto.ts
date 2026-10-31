@@ -206,3 +206,4 @@ export function redactSerial(sn: string | undefined): string {
   }
   return `${trimmed.slice(0, 3)}***${trimmed.slice(-3)}`;
 }
+

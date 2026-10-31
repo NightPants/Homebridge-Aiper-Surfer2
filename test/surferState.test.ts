@@ -210,3 +210,4 @@ describe('Surfer S2 Telemetry & State Normalization', () => {
     assert.equal(sanitizeHomeKitFirmwareVersion(undefined), '1.0.0');
   });
 });
+

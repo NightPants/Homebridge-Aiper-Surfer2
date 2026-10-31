@@ -255,3 +255,4 @@ export class AiperSurferPlatform implements DynamicPlatformPlugin {
     this.api.registerPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [created]);
   }
 }
+

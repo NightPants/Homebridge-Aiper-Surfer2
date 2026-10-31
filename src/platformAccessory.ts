@@ -526,3 +526,4 @@ export class SurferPlatformAccessory {
     }
   }
 }
+

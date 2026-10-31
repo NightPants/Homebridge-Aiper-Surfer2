@@ -890,3 +890,4 @@ export function asObject(value: unknown): Record<string, unknown> | undefined {
   }
   return undefined;
 }
+
