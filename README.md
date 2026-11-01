@@ -70,29 +70,44 @@ Assuming your skimmer is named **`Pool Skimmer`** in the Aiper app:
 
 ### Option 1: Homebridge UI (Recommended)
 
-1. Open **Homebridge Config UI X** in your browser.
+1. Open **Homebridge Config UI X** in your browser (`http://<pi-ip>:8581`).
 2. Navigate to the **Plugins** tab.
-3. Search for **`homebridge-aiper-surfer2`** (or install from GitHub URL `https://github.com/NightPants/Homebridge-Aiper-Surfer2`).
-4. Click **Install**, enter your **Aiper Email** and **Password** in the settings modal, click **Save**, and restart Homebridge.
+3. Search for **`homebridge-aiper-surfer2`**.
+4. Click **Install**, enter your **Aiper Email** and **Password** in the configuration modal, click **Save**, and restart Homebridge.
 
-### Option 2: Command Line (npm / GitHub)
+*(Note: Prior to official npm publishing, you can also install directly in the Homebridge UI by clicking the three dots `⋮` at the top right of the Plugins tab -> **Install Alternate Version / Fork** -> enter `NightPants/Homebridge-Aiper-Surfer2`)*.
+
+### Option 2: Command Line (npm)
 
 ```bash
-# Install directly from GitHub
-sudo npm install -g github:NightPants/Homebridge-Aiper-Surfer2
-
-# Or once published to npm
+# Official npm release (recommended)
 sudo npm install -g homebridge-aiper-surfer2
+
+# Or directly from the GitHub repository
+sudo npm install -g github:NightPants/Homebridge-Aiper-Surfer2
 ```
 
-### Option 3: Local Clone & Link (Development)
+### Option 3: Local Clone & Install (Development / Raspberry Pi)
+
+When developing locally or testing before publishing to npm on a Raspberry Pi running `hb-service` (`/var/lib/homebridge`), build and pack a standalone `.tgz` archive to ensure clean permissions and no broken symlinks:
 
 ```bash
+# 1. Clone and pack the plugin
+cd ~
 git clone https://github.com/NightPants/Homebridge-Aiper-Surfer2.git
 cd Homebridge-Aiper-Surfer2
 npm install
 npm run build
-npm link
+npm pack
+
+# 2. Install archive directly into Homebridge storage directory
+sudo mv ./*.tgz /var/lib/homebridge/homebridge-aiper-surfer2.tgz
+sudo chown homebridge:homebridge /var/lib/homebridge/homebridge-aiper-surfer2.tgz
+cd /var/lib/homebridge
+sudo -H -u homebridge env PATH="/opt/homebridge/bin:$PATH" npm install --cache /tmp/hb-npm-cache --omit=dev ./homebridge-aiper-surfer2.tgz
+
+# 3. Restart Homebridge
+sudo hb-service restart
 ```
 
 ---
