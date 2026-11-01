@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="branding/icon.png" width="160" alt="Homebridge Aiper Surfer S2 Icon" style="border-radius: 36px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);" />
+</p>
+
 # Homebridge Aiper Surfer S2
 
 [![Build & Test](https://github.com/NightPants/Homebridge-Aiper-Surfer2/actions/workflows/build.yml/badge.svg)](https://github.com/NightPants/Homebridge-Aiper-Surfer2/actions/workflows/build.yml)

@@ -2,7 +2,8 @@
   "pluginAlias": "AiperSurfer2",
   "pluginType": "platform",
   "singular": true,
-  "headerDisplay": "Integrate and control your **Aiper Surfer S2** solar pool skimmer in Apple HomeKit via the Aiper Cloud & AWS IoT MQTT API.",
+  "icon": "https://raw.githubusercontent.com/NightPants/Homebridge-Aiper-Surfer2/main/branding/icon.png",
+  "headerDisplay": "<div align=\"center\" style=\"margin-bottom: 12px;\"><img src=\"https://raw.githubusercontent.com/NightPants/Homebridge-Aiper-Surfer2/main/branding/icon.png\" alt=\"Aiper Surfer S2 Icon\" width=\"96\" style=\"border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-bottom: 8px;\" /><br/><strong>Aiper Surfer S2 HomeKit Platform</strong><br/><span style=\"color: #666; font-size: 13px;\">Integrate and control your Aiper Surfer S2 solar pool skimmer in Apple HomeKit via Aiper Cloud &amp; AWS IoT MQTT.</span></div>",
   "footerDisplay": "Note: Aiper's cloud permits one active account session at a time. Opening the official Aiper mobile app may briefly pause cloud polling for ~3 minutes so your phone session is not interrupted.",
   "schema": {
     "type": "object",
