@@ -12,20 +12,17 @@
         "title": "Platform Name",
         "type": "string",
         "default": "Aiper Surfer S2",
-        "required": true,
         "description": "Display name used in Homebridge logs."
       },
       "email": {
         "title": "Aiper Account Email",
         "type": "string",
-        "required": true,
         "placeholder": "you@example.com",
         "description": "Email address used to sign in to the official Aiper mobile app."
       },
       "password": {
         "title": "Aiper Account Password",
         "type": "string",
-        "required": true,
         "x-schema-form": {
           "type": "password"
         },

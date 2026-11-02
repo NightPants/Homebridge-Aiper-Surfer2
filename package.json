@@ -2,7 +2,7 @@
   "name": "homebridge-aiper-surfer2",
   "displayName": "Aiper Surfer S2",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Homebridge plugin to integrate and control the Aiper Surfer S2 solar pool skimmer in Apple HomeKit.",
   "author": "NightPants",
@@ -17,6 +17,7 @@
   },
   "keywords": [
     "homebridge-plugin",
+    "supports-hap",
     "aiper",
     "surfer",
     "surfer-s2",
