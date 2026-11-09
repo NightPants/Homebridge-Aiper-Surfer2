@@ -4,6 +4,7 @@
 
 # Homebridge Aiper Surfer S2
 
+[![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=flat&logoColor=%23FFFFFF&logo=homebridge)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![Build & Test](https://github.com/NightPants/Homebridge-Aiper-Surfer2/actions/workflows/build.yml/badge.svg)](https://github.com/NightPants/Homebridge-Aiper-Surfer2/actions/workflows/build.yml)
 [![Homebridge v1.8 / v2.0](https://img.shields.io/badge/homebridge-1.8%20%7C%202.0-purple?logo=homebridge)](https://homebridge.io)
 [![Node.js](https://img.shields.io/badge/node-20%20%7C%2022%20%7C%2024-339933?logo=node.js)](https://nodejs.org)
@@ -276,6 +277,14 @@ Homebridge-Aiper-Surfer2/
 
 - Inspired by [richierockskool/homebridge-aiper](https://github.com/richierockskool/homebridge-aiper) for Homebridge platform structure and HomeKit accessory patterns.
 - Protocol details, `0x80` high-bit status masking, clean-path endpoints, and live hardware telemetry contracts informed by [kmich/ha-aiper](https://github.com/kmich/ha-aiper) (Home Assistant Aiper integration with verified Surfer S2 hardware profiles).
+
+---
+
+## Support & Donations
+
+If this plugin keeps your pool sparkling clean and helps automate your Apple HomeKit setup, please consider supporting future maintenance and development:
+
+[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C.svg?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/ncp/payment/EGCFVVRYZCHXU)
 
 ---
 

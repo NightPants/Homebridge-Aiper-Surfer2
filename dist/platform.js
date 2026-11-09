@@ -1,4 +1,4 @@
-import { AiperClient } from './aiperClient.js';
+import { AiperAuthenticationError, AiperClient } from './aiperClient.js';
 import { SurferPlatformAccessory } from './platformAccessory.js';
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings.js';
 import { formatSurferModelName } from './surferState.js';
@@ -56,6 +56,13 @@ export class AiperSurferPlatform {
             this.syncDevicesToHomeKit(devices);
         }
         catch (error) {
+            if (error instanceof AiperAuthenticationError) {
+                this.log.error(`Aiper Cloud authentication rejected: ${error.message}. ` +
+                    'Please verify your Aiper email and password in Homebridge settings. ' +
+                    'Automatic login retries have been stopped to prevent account lockout.');
+                this.restoreFromCacheOnly();
+                return;
+            }
             const msg = error instanceof Error ? error.message : String(error);
             this.log.warn(`Aiper Cloud unavailable at startup (${msg}). Restoring cached HomeKit accessories and retrying in 60s.`);
             this.restoreFromCacheOnly();

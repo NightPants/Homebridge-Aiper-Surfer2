@@ -277,6 +277,13 @@ export class AiperClient {
           lastError = new AiperAuthenticationError(
             `Aiper login rejected on ${candidateRegion.toUpperCase()} (${message})`,
           );
+          if (/password|credential/i.test(message)) {
+            this.log.error(
+              `Aiper rejected password on ${candidateRegion.toUpperCase()} (${message}). ` +
+              'Aborting candidate region probing to protect account from lockout.',
+            );
+            throw lastError;
+          }
           continue;
         }
 

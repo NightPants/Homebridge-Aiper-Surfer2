@@ -2,11 +2,15 @@
   "name": "homebridge-aiper-surfer2",
   "displayName": "Aiper Surfer S2",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Homebridge plugin to integrate and control the Aiper Surfer S2 solar pool skimmer in Apple HomeKit.",
   "author": "NightPants",
   "license": "Apache-2.0",
+  "funding": {
+    "type": "paypal",
+    "url": "https://www.paypal.com/ncp/payment/EGCFVVRYZCHXU"
+  },
   "homepage": "https://github.com/NightPants/Homebridge-Aiper-Surfer2#readme",
   "repository": {
     "type": "git",
